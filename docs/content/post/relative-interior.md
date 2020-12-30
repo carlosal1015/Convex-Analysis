@@ -158,10 +158,9 @@ $$
 Sea $z\in\operatorname{ri}\left(C\right)$, entonces
 $z\in W=\left[V\cap\operatorname{aff}\left(C\right)\right]\subset C$.
 $z\in V$, esto es, $\exists\,r\gt0$ tal que
-$B\left(z,r\right)\subset V$.
-<br>
-Afirmación:
-<br>
+$B\left(z,r\right)\subset V$.<br>
+
+Afirmación:<br>
 $y\in W$.
 {{% /thm %}}
 
