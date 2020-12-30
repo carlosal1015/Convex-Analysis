@@ -1,0 +1,99 @@
+<!doctype html><html lang=es-pe><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Una introducción."><meta name=author content="Oromion Aznarán"><meta name=keywords content><title>Interior relativo -- Análisis convexo</title><link href=https://carlosal1015.github.io/Convex-Analysis/css/bootstrap.min.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/thm.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/alert.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/clean-blog.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true,},{left:"\\\[",right:"\\\]",display:true,},{left:"$",right:"$",display:false,},{left:"\\\(",right:"\\\)",display:false,},],});});</script><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel=stylesheet type=text/css></head><body id=KaTeX><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a class=navbar-brand href=https://carlosal1015.github.io/Convex-Analysis>Análisis convexo</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a href=https://carlosal1015.github.io/Convex-Analysis/>Inicio</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/about/>Acerca de</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/post/>Entradas</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/contact/>Contacto</a></li></ul></div></div></nav><header class=intro-header style=background-image:url(https://carlosal1015.github.io/Convex-Analysis/img/post-bg.jpg)><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Interior relativo</h1><h2 class=subheading>Una introducción.</h2><span class=meta>Posted by <a href=#>Oromion Aznarán</a> on Thu, Mar 26, 2020<br>In <a href=https://carlosal1015.github.io/Convex-Analysis/categories/development>Development</a><br>Tags <a href=https://carlosal1015.github.io/Convex-Analysis/tags/go>go</a></span></div></div></div></div></header><article><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><link rel=stylesheet href=https://carlosal1015.github.io/Convex-Analysis/css/hugo-easy-gallery.css><div class=box style=max-width:600px><figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject><div class=img><img itemprop=thumbnail src=https://carlosal1015.github.io/Convex-Analysis/img/interior.png></div><a href=https://carlosal1015.github.io/Convex-Analysis/img/interior.png itemprop=contentUrl></a></figure></div><p>Recordemos, si $C\subset\mathbb{R}^{n}$ es no vacío.</p><div class="thm thm-definition"><p>Definición (Interior de un conjunto $C$).</p>El interior de $C$, denotado por $\operatorname{int}\left(C\right)$,
+es
+$$
+\operatorname{int}\left(C\right)=
+\bigcap_{\mathclap{\underset{V\text{ abierto}}{V\subset C}}}
+V.
+$$</div><div class="thm thm-definition"><p>Definición (Conjunto abierto).</p>Un conjunto $V\subset\mathbb{R}^{n}$ es abierto en $\mathbb{R}^{n}$,
+si $\forall x\in V\,\exists r=r\left(x\right)\gt0$ tal que
+$B\left(x,r\right)\subset V$
+$$
+B\left(x,r\right)\coloneqq
+\left\{
+y\in\mathbb{R}^{n}\colon
+\left\|y-x\right\|\lt r
+\right\}.
+$$</div><div class="thm thm-example"><p>Ejemplo.</p>En $\mathbb{R}^{2}$, el conjunto
+$$
+C=
+\left\{
+\left(x,y\right)\in\mathbb{R}^{2}\colon
+0\leq x\leq1,y=0
+\right\}
+$$
+tiene interior vacío.</div><div class="thm thm-definition"><p>Definición (Interior relativo).</p>Sea $C\subset\mathbb{R}^{n}$ no vacío.
+El interior relativo de $C$, denotado por
+$\operatorname{ri}\left(C\right)$, es
+$$
+\operatorname{ri}
+\left(C\right)=
+\bigcup_{
+\substack{W\subset C\\
+W\subset\mathcal{F}}
+}
+W
+$$
+donde
+$$
+\mathcal{F}\coloneqq
+\left\{
+W=
+\left[V\cap\operatorname{aff}\left(C\right)\right]\subset
+C\colon V\text{ es abierto de }\mathbb{R}^{n}
+\right\}.
+$$</div><div class="thm thm-remark"><p>Observación.</p>Sean $C_{1}\subset C_{2}$ ambos de $\mathbb{R}^{n}$.
+Entonces<br>1. $
+\operatorname{int}
+\left(C_{1}\right)\subset
+\operatorname{int}
+\left(C_{2}\right)
+$.<br>2. $
+\operatorname{ri}
+\left(C_{1}\right)
+\overset{??}{=}
+\operatorname{ri}
+\left(C_{2}\right)
+$.<br>3. Si
+$
+\operatorname{aff}
+\left(C_{1}\right)=
+\operatorname{aff}
+\left(C_{2}\right)
+$,
+entonces
+$
+\operatorname{ri}
+\left(C_{1}\right)\subset
+\operatorname{ri}
+\left(C_{2}\right)
+$.<br>4. Preserva la desigualdad.</div><div class="thm thm-example"><p>Ejemplo.</p>Sea $C=\left\{a\right\}$, donde $a\in\mathbb{R}^{n}$.
+Luego, el $\operatorname{aff}\left(C\right)=\left\{a\right\}$ y el
+$\operatorname{ri}\left(C\right)=C$.</div><div class="thm thm-example"><p>Ejemplo.</p>Sean $C=\left\{a,b\right\}$ con $a\neq b$.
+En $\mathbb{R}^{n}$, el $\operatorname{ri}\left(C\right)=\emptyset$.</div><div class="thm thm-remark"><p>Observación.</p>Sea $C$ un conjunto convexo no vacío.
+Para $x\in C$ y $z\in\operatorname{ri}\left(C\right)$, existe
+$y\in\operatorname{ri}\left(C\right)$ tal que
+$$
+z=
+\alpha y+
+\left(1-\alpha\right) x\quad
+\text{ para }
+\alpha\in\left]0,1\right[.
+$$</div><div class="thm thm-proof"><p>Demostración.</p>Sea $z\in\operatorname{ri}\left(C\right)$, entonces
+$z\in W=\left[V\cap\operatorname{aff}\left(C\right)\right]\subset C$.
+$z\in V$, esto es, $\exists\,r\gt0$ tal que
+$B\left(z,r\right)\subset V$.<br>Afirmación:<br>$y\in W$.</div><div class="thm thm-remark"><p>Observación.</p>Sea $f\colon\mathbb{R}^{m}\to\mathbb{R}^{n}$ una función
+continua y $V$ un conjunto abierto de $\mathbb{R}^{m}$, entonces
+$f\left(V\right)$ es abierto de $\mathbb{R}^{n}$.</div><div class="thm thm-remark"><p>Observación.</p>Sea
+$$
+\begin{aligned}
+f\colon\mathbb{R}^{m} & \to\mathbb{R}^{m}            \\
+ x & \mapsto f\left(x\right)=Ax+b
+  \end{aligned}
+$$
+biyectiva donde $A\in\mathbb{R}^{m\times m}$ y $b\times\mathbb{R}^{m}$.
+Si $V$ es abierto en $\mathbb{R}^{m}$, entonces $f\left(V\right)$
+también es un abierto en $\mathbb{R}^{n}$.</div><div class="thm thm-theorem"><p>Teorema.</p>Sea $C\subset\mathbb{R}^{n}$ convexo no vacío, entonces el
+$\operatorname{ri}\left(C\right)$ es no vacío.</div><div class="thm thm-example"><p>Ejemplo.</p>Sea.</div></div></div></div></article><hr><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=mailto:caznaranl@uni.pe><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://github.com/carlosal1015><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Código lanzado bajo la licencia GPL 2.0.</p></div></div></div></footer><script src=https://carlosal1015.github.io/Convex-Analysis/js/jquery.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/bootstrap.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/clean-blog.js></script></body></html>

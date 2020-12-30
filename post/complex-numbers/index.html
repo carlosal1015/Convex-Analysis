@@ -1,0 +1,72 @@
+<!doctype html><html lang=es-pe><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Una introducción."><meta name=author content="Oromion Aznarán"><meta name=keywords content><title>Números complejos -- Análisis convexo</title><link href=https://carlosal1015.github.io/Convex-Analysis/css/bootstrap.min.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/thm.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/alert.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/clean-blog.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true,},{left:"\\\[",right:"\\\]",display:true,},{left:"$",right:"$",display:false,},{left:"\\\(",right:"\\\)",display:false,},],});});</script><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel=stylesheet type=text/css></head><body id=KaTeX><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a class=navbar-brand href=https://carlosal1015.github.io/Convex-Analysis>Análisis convexo</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a href=https://carlosal1015.github.io/Convex-Analysis/>Inicio</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/about/>Acerca de</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/post/>Entradas</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/contact/>Contacto</a></li></ul></div></div></nav><header class=intro-header style=background-image:url(https://carlosal1015.github.io/Convex-Analysis/img/post-bg.jpg)><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Números complejos</h1><h2 class=subheading>Una introducción.</h2><span class=meta>Posted by <a href=#>Oromion Aznarán</a> on Thu, Apr 2, 2020<br>In <a href=https://carlosal1015.github.io/Convex-Analysis/categories/development>Development</a><br>Tags <a href=https://carlosal1015.github.io/Convex-Analysis/tags/go>go</a></span></div></div></div></div></header><article><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class="thm thm-definition"><p>Definición (Espacio vectorial con producto interno).</p>Sea $\left(V,\mathbb{C}\right)$ o $\left(V,\mathbb{R}\right)$.
+Si $\left\langle,\right\rangle\colon V\times V\rightarrow\mathbb{F}$,
+con $\mathbb{F}=\mathbb{C}\vee\mathbb{R}$, es un producto interno.
+Tenemos $\left(V,\mathbb{F},\left\langle,\right\rangle\right)$ el
+espacio vectorial con producto interno.</div><div class="thm thm-remark"><p>Observación.</p>Entonces
+$$
+\left\langle u,v\right\rangle=
+\mathfrak{Re}\left\langle u,v\right\rangle+
+\imath\mathfrak{Im}\left\langle u,v\right\rangle.
+$$
+$$
+\begin{aligned}
+z & =x+\imath y\in\mathbb{R}         \\
+\imath z & =-y+\imath x                     \\
+-\imath z & =y-\imath x                      \\
+\mathfrak{Im}z & =y-\mathfrak{Re}\left(-\imath z\right)
+\end{aligned}
+$$
+entonces
+$$
+\begin{aligned}
+\left\langle u,v\right\rangle & =
+    \mathfrak{Re}\left\langle u,v\right\rangle+
+i\mathfrak{Re}
+\left(
+\underbrace{-i\left\langle u,v\right\rangle}_{\left\langle u,v\right\rangle}
+\right) \\
+\left\langle u,v\right\rangle & =
+    \mathfrak{Re}\left\langle u,v\right\rangle+
+i\mathfrak{Re}
+\left(
+\left\langle u,iv\right\rangle
+\right) \\
+\end{aligned}
+$$
+el producto interno está determinado por su parte real.</div><div class="thm thm-definition"><p>Definición (Formas cuadrática o función cuadrática).</p>Sea $\left(V,\mathbb{F},\left\langle,\right\rangle\right)$ un espacio
+con producto interno.
+Una función cuadrática sobre $V$ es
+$$
+\begin{aligned}
+q\colon V &
+    \to\mathbb{F} \\
+    \alpha  &
+    \mapsto q\left(\alpha\right)=
+\left\langle\alpha,\alpha\right\rangle=
+{\left\|\alpha\right\|}^{2}.
+\end{aligned}
+$$</div><p>Tenemos:</p><p><span class=math>\[
+\begin{aligned}
+q\left(\alpha\pm\beta\right) & =
+\left\langle\alpha\pm\beta,\alpha\pm\beta\right\rangle \\
+& =
+q\left(\alpha\right)\pm
+\left\langle\alpha,\beta\right\rangle+
+\left\langle\beta,\alpha\right\rangle+
+q\left(\beta\right) \\
+& =
+{\left\|\alpha\right\|}^{2}\pm
+2\mathfrak{Re}
+\left\langle\alpha,\beta\right\rangle+
+{\left\|\beta\right\|}^{2}
+\end{aligned}
+\]</span></p><p>Si $\mathbb{F}=\mathbb{R}$ se tiene:</p><p><span class=math>\[
+\left\langle\alpha,\beta\right\rangle=
+\frac{1}{4}q\left(\alpha+\beta\right)-
+\frac{1}{4}q\left(\alpha-\beta\right)+
+\frac{1}{4}q\left(\alpha+\beta\right)-
+\frac{1}{4}q\left(\alpha-\beta\right).
+\]</span></p><p>son las identidades de polarización.</p><div class="thm thm-definition"><p>Definición (Matriz de un producto interno de dimensión).</p>.</div></div></div></div></article><hr><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=mailto:caznaranl@uni.pe><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://github.com/carlosal1015><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Código lanzado bajo la licencia GPL 2.0.</p></div></div></div></footer><script src=https://carlosal1015.github.io/Convex-Analysis/js/jquery.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/bootstrap.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/clean-blog.js></script></body></html>

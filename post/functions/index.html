@@ -1,0 +1,197 @@
+<!doctype html><html lang=es-pe><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Una introducción."><meta name=author content="Oromion Aznarán"><meta name=keywords content><title>Repaso de funciones -- Análisis convexo</title><link href=https://carlosal1015.github.io/Convex-Analysis/css/bootstrap.min.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/thm.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/alert.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/clean-blog.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true,},{left:"\\\[",right:"\\\]",display:true,},{left:"$",right:"$",display:false,},{left:"\\\(",right:"\\\)",display:false,},],});});</script><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel=stylesheet type=text/css></head><body id=KaTeX><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a class=navbar-brand href=https://carlosal1015.github.io/Convex-Analysis>Análisis convexo</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a href=https://carlosal1015.github.io/Convex-Analysis/>Inicio</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/about/>Acerca de</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/post/>Entradas</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/contact/>Contacto</a></li></ul></div></div></nav><header class=intro-header style=background-image:url(https://carlosal1015.github.io/Convex-Analysis/img/post-bg.jpg)><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Repaso de funciones</h1><h2 class=subheading>Una introducción.</h2><span class=meta>Posted by <a href=#>Oromion Aznarán</a> on Thu, Mar 19, 2020<br>In <a href=https://carlosal1015.github.io/Convex-Analysis/categories/development>Development</a><br>Tags <a href=https://carlosal1015.github.io/Convex-Analysis/tags/funciones>funciones</a></span></div></div></div></div></header><article><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>Sean $X,Y$ dos conjuntos no vacíos y sea $f\colon X\to Y$ una función.</p><p>Se dice que</p><ol><li>$
+f\text{ es inyectiva }\iff
+\left[
+\forall x_{1},x_{2}
+\in X\colon
+x_{1}\neq x_{2}\implies
+f\left(x_{1}\right)\neq
+f\left(x_{2}\right)
+\right]
+$.</li><li>$
+f\text{ es inyectiva }\iff
+\left[
+\forall x_{1},x_{2}
+\in X\colon
+f\left(x_{1}\right)=
+f\left(x_{2}\right)\implies
+x_{1}=
+x_{2}\right]
+$.</li><li>$
+f\text{ es suryectiva}\iff
+\left[
+\forall y\in Y,\exists
+x\in X
+\ni y=
+f\left(x\right)
+\right]
+$.</li><li>$
+f\text{ es biyectiva }\iff
+f\text{ es inyectiva }\wedge
+f\text{ es suryectiva}
+$.</li></ol><h2 id=existe-alguna-fcolonmathbbnrightarrowmathscrpleftmathbbnright-suryectiva>¿Existe alguna $f\colon\mathbb{N}\rightarrow\mathscr{P}\left(\mathbb{N}\right)$ suryectiva?</h2><p>No.</p><p>En efecto, suponga que tal función si existe
+$f\colon\mathbb{N}\to\mathscr{P}\left(\mathbb{N}\right)$ suryectiva.
+Para el conjunto</p><p><span class=math>\[
+A\eqqcolon
+\left\{
+k\in\mathbb{N}\mid
+k\notin
+f\left(k\right)
+\right\}
+\in\mathscr{P}
+\left(\mathbb{N}\right).
+\]</span></p><p>Siendo $f$ suryectiva $\exists n\in\mathbb{N}\ni f\left(n\right)=A$.</p><ul><li>Si $n\in A\implies n\notin f\left(n\right)\implies n\notin A\,\Rightarrow\Leftarrow$.</li><li>Si $n\notin A\implies n\notin f\left(n\right)\implies n\in A\,\Rightarrow\Leftarrow$.</li></ul><div class="thm thm-definition"><p>Definición (Conjuntos finitos).</p>Sea $A$ un conjunto.
+El conjunto $A$ es finito si $A=\emptyset\vee$
+$$
+\exists
+f\colon A\to
+\left\{1,2,\ldots,n\right\}
+$$
+biyectiva.</div><div class="thm thm-lemma"><p>Lema (1).</p>Sea $A$ un conjunto con $a_{0}\in A$.
+$$
+\exists\,f\colon A\to
+\left\{1,2,\ldots,n+1\right\}
+\text{ biyectiva }\iff
+\exists\,g\colon A\setminus\left\{a_{0}\right\}\to
+\left\{1,2,\ldots,n\right\}
+\text{ biyectiva }.
+$$</div><div class="thm thm-proof"><p>Demostración.</p>($\Leftarrow$) Obvio.
+Basta definir
+$$
+\begin{aligned}
+f\colon A &
+    \to\left\{1,\ldots, n+1\right\} \\
+x &
+    \mapsto g\left(x\right),\quad
+x\in A\setminus\left\{a_{0}\right\} \\
+a_{0} &
+    \mapsto n+1,\quad\text{caso contrario}.
+\end{aligned}
+$$
+($\Rightarrow$) Si $f\left(a_{0}\right)=n+1$, entonces definimos
+$g=f\big|_{A\setminus\left\{a_{0}\right\}}$.
+En caso contrario, supongamos que $f\left(a_{0}\right)=m\neq m+1$.
+Luego, definimos
+$$
+\begin{aligned}
+h\colon A & \rightarrow\left\{1,\ldots, m+1\right\} \\
+x & \mapsto f\left(x\right),\quad x\neq a_{0},a_{1} \\
+a_0 & \mapsto n+1,                     \\
+a_1 & \mapsto m.
+  \end{aligned}
+$$
+
+Así, $g=h\big|_{A\setminus\left\{a_{0}\right\}}$.</div><div class="thm thm-theorem"><p>Teorema.</p>Sea $f\colon A\rightarrow\left\{1,2\ldots,n\right\}$ biyectiva.
+Si $B\subsetneq A$, entonces
+$\nexists\,g\colon B\rightarrow\left\{1,\ldots,n\right\}$ biyectiva.</div><div class="thm thm-proof"><p>Demostración.</p>Por inducción sobre $n$.
+Para $n=1\colon A=\left\{a\right\}$ y $B=\emptyset$.
+Obvio.<br>Hipótesis de inducción:
+Supongamos cierto el teorema para $n$.
+Veamos que se cumple para $n+1$:
+En efecto, sea $f\colon A\rightarrow\left\{1,2,\ldots, n+1\right\}$
+biyectiva y $B\subsetneq A$ ($B=\emptyset$, obvio).
+Supogamos $B\neq\emptyset$.
+Sea $a_{0}\in B$ y $a_{1}\in A\setminus B$.
+Por el lema $1$:
+$$
+\exists\,g\colon
+A\setminus
+\left\{a_0\right\}\rightarrow
+\left\{1,\ldots,n\right\}
+$$
+biyectiva y como
+$$
+B\setminus
+\left\{a_{0}\right\}\subsetneq
+A\setminus
+\left\{a_{0}\right\}.
+$$
+Por la hipótesis de inducción:
+$$
+\nexists\,h\colon
+B\setminus
+\left\{a_{0}\right\}\rightarrow
+\left\{1,2,\ldots,n\right\}
+\text{biyectiva}
+$$
+Por el lema $1$:
+$$
+\exists\,k\colon
+B\rightarrow
+\left\{1,2,\ldots,n+1\right\}
+\text{biyectiva}.
+$$</div><div class="thm thm-corollary"><p>Corolario.</p>Si $A$ es finito, entonces $\nexists$ biyección de $A$ es un
+subconjunto propio de $A$.
+En efecto, supongamos que
+$\exists\,f\colon A\rightarrow B\subsetneq A$ biyectiva.
+Como $A$ es finito, entonces
+$$
+\exists\, g\colon
+A\rightarrow
+\left\{1,\ldots,n\right\}
+$$
+para algún $n$.</div><div class="thm thm-corollary"><p>Corolario.</p>$\mathbb{N}$ no es finito.</div><div class="thm thm-proof"><p>Demostración.</p>En efecto.
+Basta observar que
+$$
+\begin{aligned}
+f\colon\mathbb{N} &
+    \rightarrow
+    \mathbb{N}\setminus\left\{1\right\}\subsetneq
+\mathbb{N} \\
+n & \mapsto n+1
+  \end{aligned}
+$$
+
+es biyectiva.</div><div class="thm thm-corollary"><p>Corolario.</p>Sea $A$ un conjunto finito.
+El cardinal de $A$ está bien definida.</div><div class="thm thm-proof"><p>Demostración.</p>En efecto.
+Sea $I_k\coloneqq\left\{1,\ldots,k\right\}$.
+Supongamos que existen
+$$
+\begin{gathered}
+f\colon A\rightarrow I_{n}\\
+g\colon A\rightarrow I_{m}\\
+\end{gathered}
+$$
+biyectivas.
+Se demostrará que $n=m$.
+Supongamos que $n\lt m$.</div><div class="thm thm-corollary"><p>Corolario.</p>Si $B\subsetneq A$ y $A$ es un conjunto finito, entonces $B$ es
+finito y $\left|A\right|\lt\left|B\right|$.</div><div class="thm thm-proof"><p>Demostración.</p>En efecto, sin pérdida de generalidad, sea
+$B=A\setminus\left\{a_{0}\right\}$ con $a_{0}\in A$.
+Como $A$ es finito, entonces
+$$
+\exists\,f\colon
+A\rightarrow
+\left\{1,\ldots,n\right\}
+$$
+biyectiva para algún $n$.
+Por el lema $1$,
+$$
+\exists\,g\colon
+A\setminus\left\{a_0\right\}\rightarrow
+\left\{1,\ldots, n\right\}
+$$
+biyectiva.
+Es decir, $B$ es finito y $\left|B\right|=n\lt\left|A\right|=n+1$.</div><div class="thm thm-corollary"><p>Corolario.</p>Sea $B\neq\emptyset$, las siguientes proposiciones son equivalentes:<br>1. $B$ es finito.<br>2. $\exists\,f\colon I_{n}\rightarrow B$ suryectiva.<br>3. $\exists\,g\colon B\rightarrow I_{n}$ inyectiva.</div><div class="thm thm-proof"><p>Demostración.</p>($1\Rightarrow2$) Si $B$ es un conjunto finito, entonces
+$\exists\,h\colon B\rightarrow I_{n}$ biyectiva para algún $n$.
+$\therefore\exists\,f=h^{-1}\colon I_{n}\rightarrow B$ suryectiva.
+($2\Rightarrow3$) Tenemos que $\exists\,f\colon I_{n}\rightarrow B$
+suryectiva.
+Definimos:
+$$
+\begin{aligned}
+g\colon B &
+    \rightarrow I_{n} \\
+    b   &
+    \mapsto g\left(b\right)=
+    \min
+\left(
+f^{-1}
+\left(\left\{b\right\}\right)
+\right)
+\subset I_{n} \\
+\end{aligned}
+$$
+Afirmamos que $g$ es inyectiva.
+Sean $b\neq b^{\prime}$ en $B$, entonces</div></div></div></div></article><hr><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=mailto:caznaranl@uni.pe><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://github.com/carlosal1015><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Código lanzado bajo la licencia GPL 2.0.</p></div></div></div></footer><script src=https://carlosal1015.github.io/Convex-Analysis/js/jquery.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/bootstrap.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/clean-blog.js></script></body></html>

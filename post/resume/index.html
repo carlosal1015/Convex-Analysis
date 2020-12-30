@@ -1,0 +1,179 @@
+<!doctype html><html lang=es-pe><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Una introducción."><meta name=author content="Oromion Aznarán"><meta name=keywords content><title>Práctica dirigida 1 -- Análisis convexo</title><link href=https://carlosal1015.github.io/Convex-Analysis/css/bootstrap.min.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/thm.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/alert.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/clean-blog.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true,},{left:"\\\[",right:"\\\]",display:true,},{left:"$",right:"$",display:false,},{left:"\\\(",right:"\\\)",display:false,},],});});</script><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel=stylesheet type=text/css></head><body id=KaTeX><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a class=navbar-brand href=https://carlosal1015.github.io/Convex-Analysis>Análisis convexo</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a href=https://carlosal1015.github.io/Convex-Analysis/>Inicio</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/about/>Acerca de</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/post/>Entradas</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/contact/>Contacto</a></li></ul></div></div></nav><header class=intro-header style=background-image:url(https://carlosal1015.github.io/Convex-Analysis/img/post-bg.jpg)><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Práctica dirigida 1</h1><h2 class=subheading>Una introducción.</h2><span class=meta>Posted by <a href=#>Oromion Aznarán</a> on Wed, Mar 25, 2020<br>In <a href=https://carlosal1015.github.io/Convex-Analysis/categories/development>Development</a><br>Tags <a href=https://carlosal1015.github.io/Convex-Analysis/tags/go>go</a></span></div></div></div></div></header><article><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class="thm thm-definition"><p>Definición (Semiespacio).</p>Sea el conjunto
+$$
+\mathcal{H}\coloneqq
+\left\{
+\left(x_{1},\ldots,x_{n}\right)
+\in\mathbb{R}^{n}\colon
+a_{1}x_{1}+
+\cdots+
+a_{n}x_{n}\geq
+b
+\right\}
+$$
+donde $a=\left(a_{1},\ldots,a_{n}\right)\in\mathbb{R}^{n}$ y
+$b\in\mathbb{R}$ son fijos, es llamado semiespacio.</div><div class="thm thm-proposition"><p>Proposición.</p>El semiespacio $\mathcal{H}$ es un conjunto convexo.</div><div class="thm thm-proof"><p>Demostración.</p>Sea
+$
+\mathcal{H}\coloneqq
+\left\{
+x\in\mathbb{R}^{n}\colon\langle x,a\rangle\geq b
+\right\}
+$
+un semiespacio.
+Para cualesquiera $x,y\in\mathcal{H}$ se cumple:
+$$
+\tag{1}
+\langle x,a\rangle\geq
+b
+$$
+$$
+\tag{2}
+\langle y,a\rangle\geq
+b
+$$
+Sumando $\alpha\times\left(1\right)$ y
+$\left(1-\alpha\right)\times\left(2\right)$ obtenemos:
+$$
+\begin{aligned}
+\lambda\left\langle x,a\right\rangle+
+\left(1-\lambda\right)\langle y,a\rangle & \geq
+    \lambda b+
+    \left(1-\lambda\right)b \\
+\left\langle\lambda x+\left(1-\lambda\right)y, a\right\rangle & \geq b
+  \end{aligned}
+$$
+
+$\therefore\lambda x+\left(1-\lambda\right)y\in\mathcal{H}$, es
+decir, el semiespacio $\mathcal{H}$ es un conjunto convexo.</div><div class="thm thm-definition"><p>Definición (Hiperplano).</p>Sea el conjunto
+$$
+\mathcal{P}\coloneqq
+\left\{
+\left(x_{1},\ldots,x_{n}\right)
+\in\mathbb{R}^{n}\colon
+a_{1}x_{1}+
+\cdots+
+a_{n}x_{n}=
+b
+\right\}
+$$
+donde $a=\left(a_{1},\ldots,a_{n}\right)\in\mathbb{R}^{n}$ y
+$b\in\mathbb{R}$ son fijos, es llamado hiperplano.</div><div class="thm thm-proposition"><p>Proposición.</p>El hiperplano $\mathcal{P}$ es un conjunto convexo.</div><div class="thm thm-proof"><p>Demostración.</p>Sean $\mathcal{H}_{1}$ y $\mathcal{H}_{2}$ los siguientes conjuntos
+convexos
+$$
+\begin{aligned}
+\mathcal{H}_{1}\coloneqq
+& \left\{x\in\mathbb{R}^{n}\colon\langle a,x\rangle\geq b\right\} \\
+\mathcal{H}_{2}\coloneqq
+& \left\{x\in\mathbb{R}^{n}\colon\langle a,x\rangle\leq b\right\} \\
+\mathcal{H}_{2}\coloneqq
+& \left\{x\in\mathbb{R}^{n}\colon\langle -a,x\rangle\geq -b\right\}
+\end{aligned}
+$$
+Pero, $\mathcal{P}=\mathcal{H}_{1}\cap\mathcal{H}_{2}$ es la
+intersección de dos conjuntos convexos, por lo que se sigue que
+$\mathcal{P}$ es un conjunto convexo.</div><div class="thm thm-theorem"><p>Teorema.</p>Sea ${\left\{C_{i}\right\}}_{i\in I}$ una familia de conjuntos
+convexos.
+Entonces $\bigcap_{i\in I}C_{i}$ es un conjunto convexo.</div><div class="thm thm-proof"><p>Demostración.</p>Sea $x,y\in\bigcap_{i\in I}C_{i}$.
+Es decir, para cualesquiera $x,y\in C_{i},\forall i\in I$, donde
+los $C_{i}$ son conjuntos convexos, entonces
+$$
+\begin{aligned}
+\forall\lambda\in\left[0,1\right],
+\forall i\in I
+& \colon\color{blue}
+    \lambda x+\left(1-\lambda\right)y\in C_{i} \\
+\forall\lambda\in\left[0,1\right],
+\forall i\in I
+& \colon\color{blue}
+    \lambda x+\left(1-\lambda\right)y\in\bigcap_{i\in I}C_{i}.
+\end{aligned}
+$$
+Así, $\bigcap_{i\in I}C_{i}$ es un conjunto convexo.</div><div class="thm thm-definition"><p>Definición (Cápsula convexa).</p>Sea $S\subset\mathbb{R}^{n}$.
+El conjunto
+$$
+\operatorname{co}\left(S\right)\coloneqq
+\left\{
+x\in\mathbb{R}^{n}\colon
+x\text{ es una combinación convexa}.
+\right\}
+$$
+es llamada cápsula convexa de $S$.</div><div><div class="alert alert-note">Si $R$ es un conjunto convexo y $S_{2}\subset\mathbb{R}$, entonces
+$\operatorname{co}\left(S_{2}\right)\subset\mathbb{R}$.</div></div><div class="thm thm-theorem"><p>Teorema.</p>Si $S_{1}\subset S_{2}$, entonces
+$
+\operatorname{co}\left(S_{1}\right)\subset
+\operatorname{co}\left(S_{2}\right)
+$.</div><div class="thm thm-proof"><p>Demostración.</p>Por hipótesis,
+$S_{1}\subset S_{2}\subset\operatorname{co}\left(S_{2}\right)$,
+donde $\operatorname{co}\left(S_{2}\right)$ es el "menor" conjunto
+convexo que contiene a $S_{2}$.
+Sea $x\in\operatorname{co}\left(S_{1}\right)$, entonces si
+$p\in\mathbb{N}$
+$$
+x=
+\sum_{j=1}^{p}
+\lambda_{j}x_{j},\quad
+\lambda_{j}\in\left[0,1\right],\quad
+\sum_{j=1}^{p}\lambda_{j}=
+1.
+$$</div><div class="thm thm-definition"><p>Definición (Cono).</p>$K\subset\mathbb{R}^{n}$ es un cono si
+$\forall x\in K\colon\lambda x\in K,\lambda\gt0$.</div><div class="thm thm-definition"><p>Definición (Conjunto acotado).</p>Sea $A$ un subconjunto de $\mathbb{R}^{n}$.
+$A$ es acotado si
+$$
+\left\|x\right\|\le M,\quad
+\forall x\in A.
+$$</div><div class="thm thm-proposition"><p>Proposición.</p></div>El cono trivial $K=\left\{0\right\}$ es acotado.<div class="thm thm-proof"><p>Demostración.</p>Sea $K$ un cono y como $K\neq\left\{0\right\},\exists x_{0}\in K$ tal
+que $\left\|x_{0}\right\|\neq0$.
+Sea $\lambda=\frac{2M}{\left\|x_{0}\right\|}$.
+Como $x_{0}\in K$, entonces $\lambda x_{0}\in K$, luego
+$$
+\left\|\lambda x_{0}\right\|=
+\left|\lambda\right|
+\left\|x_{0}\right\|=
+\frac{2M}{\cancel{\left\|x_{0}\right\|}}
+\cancel{\left\|x_{0}\right\|}=
+2M\le M.\quad
+\left(\Rightarrow\Leftarrow\right)
+$$</div><div class="thm thm-theorem"><p>Teorema (Cono convexo).</p>Sea $K$ un cono, entonces
+$$
+K\text{ es convexo}\iff
+K+
+K\subset K.
+$$</div><div class="thm thm-proof"><p>Demostración.</p>$\left(\Leftarrow\right)$ Sea $x,y\in K$.
+Afirmo que
+$$
+\forall\lambda\in\left[0,1\right]\colon
+\lambda x+\left(1-\lambda\right)y\in K.
+$$
+En efecto, si
+$$
+\begin{aligned}
+\lambda & =
+    0\colon 0\cdot\lambda+
+    \left(1-0\right)\cdot y=
+y\in K. \\
+\lambda & =
+    1\colon 1\cdot x+
+    \left(1-1\right)\cdot x=
+x\in K. \\
+\lambda & \gt
+    0\colon
+    \underbrace{\lambda x}_{\in K}+
+\underbrace{\left(1-\lambda\right)y}_{\in K}\in K.
+\end{aligned}
+$$
+Por lo tanto, $K$ es un conjunto convexo.<br>$\left(\Rightarrow\right)$ Sea $K$ un conjunto convexo con
+$z=x+y\in K+K,\forall x,y\in K$.
+Además, $z$ se puede escribir como
+$$
+z=
+C
+\left(
+\lambda_{1}x+
+\lambda_{2}y
+\right)
+$$
+donde $C=2>0$, ${\lambda}_{i=1,2}=\frac{1}{2}\geq0$,
+$\sum_{i=1}^{2}\lambda_{i}=1$.
+Así, $z\in K$.</div></div></div></div></article><hr><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=mailto:caznaranl@uni.pe><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://github.com/carlosal1015><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Código lanzado bajo la licencia GPL 2.0.</p></div></div></div></footer><script src=https://carlosal1015.github.io/Convex-Analysis/js/jquery.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/bootstrap.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/clean-blog.js></script></body></html>

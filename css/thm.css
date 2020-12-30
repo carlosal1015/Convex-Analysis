@@ -1,0 +1,88 @@
+/* highly inspired from 
+https://felix11h.github.io/blog/mathjax-theorems
+*/
+
+.thm span.mjx-chtml.MathJax_CHTML a {
+  font-style: italic;
+}
+
+div.thm {
+  display: block;
+  margin: 12px 0;
+  padding: 0px 20px;
+  font-style: italic;
+}
+
+div.thm p:first-child {
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: 0px;
+}
+
+div.thm p:first-child {
+  font-size: 1.2em;
+}
+
+div.thm.thm-proof p:first-child {
+  font-size: 1em;
+}
+
+.thm-theorem {
+  border-left: 6px solid;
+  border-color: red;
+}
+
+div.thm-theorem p.thm-title {
+  content: "Théorème.";
+}
+
+.thm-proposition {
+  border-left: 6px solid;
+  border-color: orange;
+}
+
+.thm-corollary {
+  border-left: 6px solid;
+  border-color: yellowgreen;
+}
+
+.thm-lemma {
+  border-left: 6px solid;
+  border-color: grey;
+}
+
+.thm-definition {
+  border-left: 6px solid;
+  border-color: blue;
+}
+
+.thm-remark {
+  border-left: 6px solid;
+  border-color: green;
+}
+
+.thm.thm-proof {
+  padding: 0px;
+}
+
+.thm.thm-proof:after {
+  display: block;
+  content: "\25FC";
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.thm-example {
+  border-left: 6px solid;
+  border-color: rgb(93, 233, 0);
+}
+
+.thm-application {
+  border-left: 6px solid;
+  border-color: rgb(0, 162, 255);
+}
+
+.thm-consequence {
+  border-left: 6px solid;
+  border-color: rgb(255, 102, 0);
+}

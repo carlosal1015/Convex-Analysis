@@ -1,0 +1,115 @@
+<!doctype html><html lang=es-pe><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Una introducción."><meta name=author content="Oromion Aznarán"><meta name=keywords content><title>Conjuntos convexos -- Análisis convexo</title><link href=https://carlosal1015.github.io/Convex-Analysis/css/bootstrap.min.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/thm.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/alert.css rel=stylesheet><link href=https://carlosal1015.github.io/Convex-Analysis/css/clean-blog.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true,},{left:"\\\[",right:"\\\]",display:true,},{left:"$",right:"$",display:false,},{left:"\\\(",right:"\\\)",display:false,},],});});</script><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel=stylesheet type=text/css></head><body id=KaTeX><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a class=navbar-brand href=https://carlosal1015.github.io/Convex-Analysis>Análisis convexo</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a href=https://carlosal1015.github.io/Convex-Analysis/>Inicio</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/about/>Acerca de</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/post/>Entradas</a></li><li><a href=https://carlosal1015.github.io/Convex-Analysis/contact/>Contacto</a></li></ul></div></div></nav><header class=intro-header style=background-image:url(https://carlosal1015.github.io/Convex-Analysis/img/post-bg.jpg)><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Conjuntos convexos</h1><h2 class=subheading>Una introducción.</h2><span class=meta>Posted by <a href=#>Oromion Aznarán</a> on Thu, Apr 2, 2020<br>In <a href=https://carlosal1015.github.io/Convex-Analysis/categories/development>Development</a><br>Tags <a href=https://carlosal1015.github.io/Convex-Analysis/tags/go>go</a></span></div></div></div></div></header><article><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>¡Bienvenido al curso! En los albores de la fascinante rama de las
+matemáticas llamada <strong>Optimización</strong> fue estudiado por muchos años
+como un solo bloque, posteriormente se decidió estudiar este cuerpo
+iniciando por el caso convexo para luego extrapolar ideas en el caso
+no convexo.</p><p>Hay funciones convexas triviales que no son funciones diferenciables.
+Por lo que debemos extender la función derivada.</p><p>En el caso convexo, la interpretación es bastante geométrica.</p><p>En el caso no convexo estamos limitados en la parte geométrica.</p><p>Entonces la misión de los matemáticos ha sido reescribir la propiedad
+en el caso no convexo.</p><p>Por lo que podemos decir que el análisis convexo sirve para entender
+los casos matemáticos no convexos.</p><div class="thm thm-definition"><p>Definición (Conjunto convexo).</p>Supongamos que existe un conjunto no vacío $C$, contenido en el
+espacio vectorial $\mathbb{R}^{n}$.
+Diremos que $C$ es convexo si para cualesquiera $x,y\in C$, entonces
+el segmento $\left[x,y\right]\subset C$.
+En otras palabras, $C$ es convexo si para todo $x,y\in C$ se cumple
+$$
+C\ni
+\lambda x+
+\left(1-\lambda\right)y\quad
+\forall\, 0\le\lambda\le1.
+$$</div><div class="thm thm-remark"><p>Observación.</p>$C$ no depende de la dimensión (finita o infinita), pues lo único que
+necesitamos es que el espacio que contiene a $C$, debe ser un espacio
+vectorial.
+La propiedad de convexidad es una propiedad unidmensional.</div><div class="thm thm-definition"><p>Definición (Combinación convexa).</p>Sea $C\subset\mathbb{R}^{n}$ un elemento $x\in\mathbb{R}^{n}$ es una
+combinación convexa de $C$ sii existen
+${\left\{x_{i}\right\}}_{i=1}^{p}$
+$\left(p\in\mathbb{N}\right)$ en $C$ y
+${\left\{t_{i}\right\}}_{i=1}^{p}$ en $\mathbb{R}_{+}$ con
+$\sum_{i=1}^{p}t_{i}=1$ tal que $x=\sum_{i=1}^{p}t_{i}x_{i}$.</div><div class="thm thm-remark"><p>Observación.</p>El conjunto $\mathbb{R}_{+}$ denota los números reales positivos.</div><div class="thm thm-example"><p>Ejemplo (Conjuntos convexos).</p>Sea
+$C=\left\{x\in\mathbb{R}^{n}\colon\left\|x\right\|\le\gamma\right\}$
+donde $\gamma>0$ y $\left\|\cdot\right\|$ es una norma.
+Sea $A\in\mathbb{R}^{n\times n}$ y $\gamma>0$.
+El conjunto
+$
+C=
+\left\{
+x\in\mathbb{R}^{n}\colon
+\left\langle Ax,x\right\rangle\le
+\gamma
+\right\}
+$
+es convexo si y solo si $A$ es semi definida positiva (sdp):
+$$
+\left\langle Ad,d\right\rangle\ge0\quad
+\forall d\in\mathbb{R}^{n}.
+$$</div><div class="thm thm-lemma"><p>Lema.</p>Sea $C\subset\mathbb{R}^{n}$.
+El conjunto de todas las combinaciones lineales convexas de $C$ es
+convexo.</div><div class="thm thm-proof"><p>Demostración.</p>Sean las combinaciones convexas $x,y$ de $C$, entonces
+$$
+x=
+\sum_{i=1}^{p}
+\lambda_{i}x_{i},\quad
+y=
+\sum_{i=1}^{q}
+\beta_{i}y_{i}.
+$$
+Sea $0\le\lambda\le1$,
+$$
+\lambda x+
+\left(1-\lambda\right)=
+\lambda\sum_{i=1}^{p}
+\lambda_{i}x_{i}+
+\left(1-\lambda\right)
+\sum_{i=1}^{q}\beta_{i}y_{i}
+$$
+es combinación convexa de $C$.</div><div class="thm thm-proposition"><p>Proposición.</p>Sea $C\subset\mathbb{R}^{n}$.
+Las siguientes proposiciones son equivalentes:<br>1. $C$ es un conjunto convexo.<br>2. $C$ contiene a todas las combinaciones convexas de $C$.<br></div><div class="thm thm-proof"><p>Demostración.</p>($2\Rightarrow 1$)
+Sean $x,y\in C$ y $0\le\lambda\le1$, entonces
+$$
+\lambda x+
+\left(1-\lambda\right)
+y\in C.
+$$
+($1\Rightarrow 2$)
+Sea $x=\sum_{i=1}^{p}t_{i}x_{i}$ con
+${\left\{x_{i}\right\}}_{i=1}^{p}\subset C$ y
+${\left\{t_{i}\right\}}_{i=1}^{p}\subset\mathbb{R}_{+}$ con
+$\sum_{i=1}^{p}t_{i}=1$.
+Ahora
+$$
+x=
+\sum_{i=1}^{p-1}
+t_{i}x_{i}+
+t_{p}x_{p}=
+\left(
+\sum_{i=1}^{p-1}
+t_{i}
+\right)
+\left(
+\sum_{i=1}^{p}
+\frac{t_{i}}{\sum_{i=1}^{p-1}t_{i}}x_{i}
+\right)+
+t_{p}x_{p}.
+$$
+Si $p=1$ o $p=2$, ya está.
+Asumamos por inducción que se cumple para $p=1$.
+Mostraremos que se cumple para $p$.</div><div class="thm thm-proposition"><p>Proposición.</p>Si ${\left\{C_{i}\right\}}_{i\in I}$ es una colección de conjuntos
+convexos de $\mathbb{R}^{n}$, entonces
+$$
+\bigcap_{i\in J}C_{i}\quad
+\text{también es convexo}.
+$$</div><div class="thm thm-proof"><p>Demostración.</p></div><div class="thm thm-definition"><p>Definición (Cápsula convexa).</p>La cápsula convexa de un conjunto $S\subset\mathbb{R}^{n}$, denotado
+por $\operatorname{co}\left(S\right)$, es
+$$
+\bigcap_{\mathclap{\underset{C\text{ convexo}}{C\supset S}}}
+C.
+$$</div><div class="thm thm-remark"><p>Observación.</p>$\operatorname{co}\left(S\right)$ es el conjunto convexo más pequeño
+que contiene a $S$.</div><h2 id=resumen-de-la-primera-clase>Resumen de la primera clase</h2><p><span class=math>\[
+\forall x\in C,
+\forall y\in C\text{ y }
+\forall t\in\left[0,1\right]\colon
+tx+
+\left(1-t\right)y
+\in C.
+\]</span></p></div></div></div></article><hr><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=mailto:caznaranl@uni.pe><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://github.com/carlosal1015><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Código lanzado bajo la licencia GPL 2.0.</p></div></div></div></footer><script src=https://carlosal1015.github.io/Convex-Analysis/js/jquery.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/bootstrap.min.js></script><script src=https://carlosal1015.github.io/Convex-Analysis/js/clean-blog.js></script></body></html>
