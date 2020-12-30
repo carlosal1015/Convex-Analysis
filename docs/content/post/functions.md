@@ -15,6 +15,7 @@ katex: true
 ---
 
 Sean $X,Y$ dos conjuntos no vacíos y sea $f\colon X\to Y$ una función.
+
 Se dice que
 
 1. $
@@ -78,6 +79,7 @@ Siendo $f$ suryectiva $\exists n\in\mathbb{N}\ni f\left(n\right)=A$.
 
 {{% thm definition "Conjuntos finitos" %}}
 Sea $A$ un conjunto.
+
 El conjunto $A$ es finito si $A=\emptyset\vee$
 
 $$
@@ -123,6 +125,7 @@ $$
 $g=f\big|_{A\setminus\left\{a_{0}\right\}}$.
 
 En caso contrario, supongamos que $f\left(a_{0}\right)=m\neq m+1$.
+
 Luego, definimos
 
 $$
@@ -139,6 +142,7 @@ Así, $g=h\big|_{A\setminus\left\{a_{0}\right\}}$.
 
 {{% thm theorem %}}
 Sea $f\colon A\rightarrow\left\{1,2\ldots,n\right\}$ biyectiva.
+
 Si $B\subsetneq A$, entonces
 $\nexists\,g\colon B\rightarrow\left\{1,\ldots,n\right\}$ biyectiva.
 {{% /thm %}}
@@ -147,15 +151,20 @@ $\nexists\,g\colon B\rightarrow\left\{1,\ldots,n\right\}$ biyectiva.
 Por inducción sobre $n$.
 
 Para $n=1\colon A=\left\{a\right\}$ y $B=\emptyset$.
+
 Obvio.<br>
 
 Hipótesis de inducción:
+
 Supongamos cierto el teorema para $n$.
+
 Veamos que se cumple para $n+1$:
 
 En efecto, sea $f\colon A\rightarrow\left\{1,2,\ldots, n+1\right\}$
 biyectiva y $B\subsetneq A$ ($B=\emptyset$, obvio).
+
 Supogamos $B\neq\emptyset$.
+
 Sea $a_{0}\in B$ y $a_{1}\in A\setminus B$.
 
 Por el lema $1$:
@@ -242,7 +251,9 @@ El cardinal de $A$ está bien definida.
 
 {{% thm proof %}}
 En efecto.
+
 Sea $I_k\coloneqq\left\{1,\ldots,k\right\}$.
+
 Supongamos que existen
 
 $$
@@ -253,7 +264,9 @@ $$
 $$
 
 biyectivas.
+
 Se demostrará que $n=m$.
+
 Supongamos que $n\lt m$.
 {{% /thm %}}
 
@@ -304,6 +317,7 @@ $\therefore\exists\,f=h^{-1}\colon I_{n}\rightarrow B$ suryectiva.
 
 ($2\Rightarrow3$) Tenemos que $\exists\,f\colon I_{n}\rightarrow B$
 suryectiva.
+
 Definimos:
 
 $$
