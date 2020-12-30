@@ -1,0 +1,48 @@
+% arara: lualatex
+\documentclass[a4paper,10pt]{article}
+\usepackage{geometry}
+\newgeometry{margin=0.5cm}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[lite,eucal]{mtpro2}
+\usepackage{mathtools,amssymb,amsthm,dsfont}
+\usepackage{varwidth}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins}
+\usepackage{varwidth}
+\tcbuselibrary{skins}
+\newtcbtheorem{YetAnotherDefinition}{Definición}%
+{enhanced,frame empty,interior empty,colframe=ForestGreen!50!white,
+	coltitle=ForestGreen!50!black,fonttitle=\bfseries,colbacktitle=ForestGreen!15!white,
+	borderline={0.5mm}{0mm}{ForestGreen!15!white},
+	borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},
+	attach boxed title to top center={yshift=-2mm},
+	boxed title style={boxrule=0.4pt},varwidth boxed title}{theo}
+
+\begin{document}
+\begin{YetAnotherDefinition}{Conjuntos abierto, cerrado, acotado, compacto y su interior y clausura de $C\subset\mathds{R}^{n}$}{mittelwertsatz_n3}%
+	Recordemos que un subconjunto $V\subset\mathds{R}^{n}$ es
+	\begin{description}
+		\item[abierto] de $\mathds{R}^{n}$ si una de las siguientes propiedades se sigue:
+		      \begin{itemize}
+			      \item $V$ es vacío.
+			      \item Para cualquier $x\in V$, existe un $r(x)=r>0$ tal que $B\left(x,r\right)\subset V$, el cual denota la \emph{bola abierta} que se define como \[ B\left(x,r\right)\coloneqq\LEFTRIGHT\{\}{y\in\mathds{R}^{n}\colon\|y-x\|<r\,} \]
+			            donde $\|w\|\coloneqq\LEFTROOT{-2}\SQRT[2]{\sum_{i=1}^{n}w^{2}_{i}}\,$ para $w=\left(w_{1},\ldots,w_{n}\right)$.
+		      \end{itemize}
+		\item[cerrado] si su complemento $\mathds{R}^{n}\setminus V$ es un conjunto abierto de $\mathds{R}^{n}$.
+		\item[acotado] si existe algún $r>0$ tal que $V\subset B\left(0,r\right)$.
+		\item[compacto] si este es cerrado y acotado.
+	\end{description}
+	Dado un subconjunto $C\subset\mathds{R}^{n}$, su
+	\begin{description}
+		\item[interior,] denotado por $\operatorname{int}\left(C\right)$, es el conjunto abierto más grande contenido en $C$, es decir, \[ \operatorname{int}\left(C\right)=\bigcup_{\mathclap{\substack{C\supset U\\U\text{ abierto}}}} U \]
+		\item[clausura,] denotado por $\overline{C}$, es el conjunto cerrado más pequeño que contiene a $C$, es decir, \[ \overline{C}=\bigcap_{\mathclap{\substack{C\subset F\\F\text{ cerrado}}}} F \]
+	\end{description}
+	\[  \xl\sum\nolimits_{i \notin I}\xl\int\limits_{0}^{\infty}\iint_{2}^{0}\cwoint \]
+\end{YetAnotherDefinition}
+
+\begin{YetAnotherDefinition}{Continuidad de una función}{}
+	Una función $f\colon\mathcal{U}\rightarrow$
+\end{YetAnotherDefinition}
+
+\end{document}

@@ -1,0 +1,718 @@
+% arara: clean: {extensions: [ log, pdf, toc, bbl, blg, lof, lot, toc]}
+% arara: pdflatex: { shell : yes }
+%
+% DirectedPractice1.tex
+%
+% Copyright © 2019 Oromion <caznaranl@uni.pe>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+%s along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\documentclass{testfcuni} % You can find the documentation on https://github.com/carlosal1015/Notes-2019-1
+%%%% Drawing's section %%%
+\usepackage{tkz-fct}
+\usepackage{tikz}
+\usetikzlibrary{babel,calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+
+\tikzset{3D/.cd,
+	x/.store in=\xx, x=0,
+	y/.store in=\yy, y=0,
+	z/.store in=\zz, z=0
+}
+
+\tikzdeclarecoordinatesystem{3D}{%
+	\tikzset{3D/.cd,#1}%
+	\pgfpoint{sin(\yy)*(\xx)}{-((\xx)/75)^2+(\zz)/100*(\xx)}%
+}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{decorations.markings}
+\usepackage[makeroom]{cancel} % Allow cancel terms like symbolic algebra.
+%%% Color's section %%%
+\definecolor{bgcolor}{RGB}{247,242,222}
+\definecolor{myred}{RGB}{113,22,16}
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\definecolor{azul}{RGB}{112, 44, 132}
+%%% Front logo %%%
+\newcommand\logo{%
+	\begin{tikzpicture}
+	\node[draw=lime,line width=2.5pt,fill=bgcolor,rounded corners=2pt,minimum width=0.24\textwidth,align=center,inner sep=0pt,minimum height=2.4cm] (rect)
+	{ \sffamily
+		\parbox{.45\linewidth}{\color{myred}\footnotesize FACULTAD\\DE CIENCIAS}%
+		\parbox{.15\linewidth}{\color{myred}\Large\bfseries UNI}
+	};
+	\draw[violet,line width=2pt] ([xshift=18pt,yshift=-.55cm]rect.north) -- +(0,-35pt);
+	\end{tikzpicture}%
+}
+\extrawidth{1in}
+
+\newtcbtheorem{theorem}{Teorema}{
+	fonttitle=\bfseries\upshape, fontupper=\itshape,
+	colframe=green!50!black,colback=green!10!white,
+	colbacktitle=green!20!white,coltitle=blue!75!black}{theo}
+
+\begin{document}
+
+\noindent\parbox[c]{.3\textwidth}{\logo}\hfill
+\parbox[c]{1\textwidth}{\raggedright%
+  \sffamily{\Large\textbf{Práctica dirigida N$\bm{^{\circ} 1}$ de Introducción al\\
+      análisis convexo CM-224 Ciclo 2019-1}\footnotetext{Disponible en \url{https://github.com/carlosal1015}} \par\bigskip}
+  {Undg. Carlos Alonso Aznarán Laos\\
+    E-mail: \href{mailto:caznaranl@uni.pe}{caznaranl\MVAt uni.pe} 	\par\smallskip}
+  {\footnotesize Science Department, National University of Engineering\par}
+}
+
+\begin{center}
+  \fbox{\fbox{\parbox{6.6in}{\centering
+        \textbf{Temas:} Conjuntos abiertos, cerrados.}}}
+\end{center}
+\hrulefill
+
+\section*{Definiciones}
+
+\begin{theorem}[theorem style = plain apart]{plain apart}{}%[theorem style =standard]{standard}{}
+  Abcderfgh
+\end{theorem}
+
+\begin{questions}
+  %\pointinleftmargin
+  \pointpoints{Punto}{Puntos}
+  %\bracketedpoints
+
+  \question
+
+  Sea ${\left(x_{k}\right)}_{k\in\mathds{N}}$ una sucesión de
+  $\mathds{R}^{n}$.
+
+  Muestre que ${\left(x_{k}\right)}_{k\in\mathds{N}}$ converge a
+  $\overline{x}$ si y solo si para cualquier conjunto abierto
+  $\mathcal{O}$ de $\mathds{R}^{n}$ que contiene a $\overline{x}$
+  existe $\overline{k}\in\mathds{N}$ tal que para cualquier
+  $k\geq\overline{k}$, los correspondientes términos $x_{k}$
+  pertenece a $\mathcal{O}$.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Muestre que un conjunto $C\subset\mathds{R}^{n}$ es compacto si y
+  solo si para cualquier familia de conjuntos abiertos
+  ${\left\{V_{i}\right\}}_{i\in I}$ que satisface
+  $C\subset\cup_{i\in I}V_{i}$ existe una subfamilia finita
+  $V_{i_{1}},\ldots,V_{i_{p}}$ de $\left\{V_{i}\right\}{}_{i\in I}$
+  tal que $C\subset\cup_{j=1,\ldots,p}V_{i_{j}}$.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $C$ un subconjunto arbitrario de $\mathds{R}_{n}$ y
+  ${\left\{V_{i}\right\}}_{i\in I}$ una familia de conjuntos abiertos
+  que satisfacen $C\subset\cup_{i\in I}V_{i}$.
+
+  Muestre que existe una subfamilia numerable
+  ${\left\{V_{i_{j}}\right\}}_{j\in\mathds{N}}$ de
+  ${\left\{V_{i}\right\}}_{i\in I}$ tal que
+  $C\subset\cup_{j\in\mathds{N}}V_{i_{j}}$.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Dado $C\subset\mathds{R}^{n}$.
+
+  Muestre que $\overline{x}\in\overline{C}$ si y solo si para
+  cualquier $r>0$ se tiene
+  $B\left(\overline{x},r\right)\cap C\neq\emptyset$.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Dado $C$ un conjunto arbitrario y $U$ un conjunto abierto, ambos de
+  $\mathds{R}^{n}$.
+
+  Asuma que $\overline{C}\cap U\neq\emptyset$.
+  Muestre que $C\cap U\neq\emptyset$.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Dados $\overline{x}$ e $\overline{y}$ dos elementos diferentes de
+  $\mathds{R}^{n}$.
+  Tome
+  \begin{math}
+    \overline{z}=
+    \overline{t}\overline{x}+
+    \left(1-\overline{t}\right)
+    \overline{y},
+  \end{math}
+  con $\overline{t}\in\left(0,1\right)$.
+
+  Considere una bola abierta $B=B\left(\overline{x},r\right)$ con
+  $r<\|\overline{x}-\overline{z}\|$.
+
+  Muestre que para cualquier punto
+  \begin{math}
+    \overline{w}\in
+    \overline{z}+
+    \cup_{t>0}t
+    \left(\overline{z}-B\right)
+  \end{math}
+  se tiene que
+  \begin{math}
+    z\in\overline{w}+
+    \cup_{0<t\leq1}t
+    \left(B-\overline{w}\right).
+  \end{math}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Muestre que un subconjunto $E\subset\mathds{R}^{n}$ es cerrado si y
+  solo si para cualquier sucesión
+  ${\left(x_{k}\right)}_{k\in\mathds{N}}$ de $F$ que converge a algún
+  punto $\overline{x}$, uno tiene $\overline{x}\in F$.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Dé un ejemplo de dos subconjuntos cerrados $C_{1}$ y $C_{2}$ de
+  $\mathds{R}^{n}$ tal que la suma
+  \begin{math}
+    C_{1}+
+    C_{2}\coloneqq
+    \left\{
+    x_{1}+
+    x_{2}:
+    x_{i}\in C_{i},
+    i=1,2
+    \right\}
+  \end{math}
+  no es cerrado.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+  Para una función $f\colon\mathds{R}^{m}\rightarrow\mathds{R}^{n}$,
+  muestre que las dos siguientes proposiciones son equivalentes:
+
+  \begin{parts}
+    \part
+
+    $f$ es continua,
+
+    \part
+
+    para cualquier conjunto abierto $V$ de $\mathds{R}^{n}$, el
+    conjunto $f^{-1}\left(V\right)$ es un conjunto abierto de
+    $\mathds{R}^{m}$.
+  \end{parts}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $f\colon\mathds{R}^{m}\rightarrow\mathds{R}^{m}$ una función
+  continua e inyectiva.
+
+  Si $U\subset\mathds{R}^{n}$ es abierto, ¿entonces $f\left(U\right)$
+  es un abierto de $\mathds{R}^{n}$?
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Muestre que $f\colon\mathcal{U}\rightarrow\mathds{R}^{m}$ es
+  continua en $\overline{x}\in\mathcal{U}$ si y solo si para
+  cualquier sucesión ${\left(x_{k}\right)}_{k\in\mathds{N}}$ de
+  $\mathcal{U}$ converge a $\overline{x}$, la sucesión
+  ${\left(f\left(x_{k}\right)\right)}_{k\in\mathds{N}}$ converge a
+  $f\left(\overline{x}\right)$.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Asuma que $f\colon\mathds{R}^{n}\rightarrow\mathds{R}^{m}$ es una
+  función continua.
+
+  Muestre que si $W$ es un conjunto abierto de $\mathds{R}^{m}$,
+  entonces su preimagen
+  $f^{-1}\left(W\right)\coloneqq\left\{x\in\mathds{R}^{n}\colon f\left(x\right)\in W \right\}$
+  es un conjunto abierto de $\mathds{R}^{n}$.
+
+  ¿Qué ocurre si $W$ es un conjunto cerrado en vez de un conjunto abierto?
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $T\colon\mathds{R}^{p}\rightarrow\mathds{R}^{q}$ una
+  transformación lineal.
+
+  Muestre que las siguientes afirmaciones:
+
+  \begin{parts}
+    \part
+
+    Fije una base $\mathcal{B}=\left\{v_{1},\ldots,v_{n}\right\}$ de
+    $\mathds{R}^{p}$.
+
+    Para cualquier
+    $x=\left(x_{1},\ldots,x_{p}\right)\in\mathds{R}^{p}$, se
+    tiene~\label{ex:13_i}
+    \begin{align*}
+      Tx & =\sum_{i=1}^{p}x_{i}Tv_{i} \\
+         & =Ax
+    \end{align*}
+    donde $A$ es una matriz $q\times p$ cuyas $i$-ésima columna es
+    $Tv_{i}$.
+
+    \part
+
+    Del item~\ref{ex:13_i} deduzca que $T$ es continua.
+
+    \part
+
+    Si $T$ es biyectiva, entonces $p=q$.
+
+    Es más, $T\left(V\right)\coloneqq\left\{Tx\colon x\in V\right\}$
+    es un conjunto abierto de $\mathds{R}^{q}$ si y solo si $V$ es un
+    conjunto abierto de $\mathds{R}^{p}$.
+  \end{parts}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Asuma que $f\colon\mathds{R}^{n}\rightarrow\mathds{R}^{m}$ es una
+  función continua.
+
+  Muestre que si $K$ es un conjunto compacto de $\mathds{R}^{m}$,
+  entonces su imagen
+  \begin{math}
+    f\left(K\right)\coloneqq
+    \left\{
+    f\left(x\right)\colon
+    x\in K
+    \right\}
+  \end{math}
+  es un conjunto compacto de $\mathds{R}^{m}$.
+
+  ¿Es la preimagen de un conjunto compacto, vía $f$, un conjunto compacto? % La función constante.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Muestre que si $S_{1}$ y $S_{2}$ son conjuntos convexos de
+  $\mathds{R}^{m+n}$, entonces también lo es la suma parcial
+  \[
+    S=
+    \left\{
+    \left(x,y_{1}+y_{2}\right)\colon
+    x\in\mathds{R}^{n},y_{1},y_{2}\in\mathds{R}^{m},
+    \left(x,y_{1}\right)\in S_{1},
+    \left(x,y_{2}\right)\in S_{2}
+    \right\}.
+  \]
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $S\subset\mathds{R}^{n}$ un conjunto.
+  Asuma que $S$ es acotada.
+  Muestre que
+  \[
+    \overline{\operatorname{co}\left(S\right)}=
+    \operatorname{co}\left(\overline{S}\right).
+  \]
+  Mostrar mediante un ejemplo que la condición de acotamiento en
+  $S$ no es superflua.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Dado $Q\in\mathds{R}^{n\times n}$.
+
+  Muestre que si es semidefinida positiva si y solo si para cualquier
+  $\lambda\in\mathds{R}$, el conjunto de subnivel
+  \begin{math}
+    S_{\lambda\coloneqq
+    \left\{
+    x\in\mathds{R}^{n}\colon
+    \left\langle Qx,x\right\rangle\leq
+    \lambda
+    \right\}
+    }
+  \end{math}
+  es convexa.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Dados $S$ y $C$ dos subconjuntos de $\mathds{R}^{n}$.
+
+  Muestre que
+  \[
+    D\coloneqq
+    \left\{
+    x\colon
+    x+S\subset C
+    \right\}
+  \]
+  es un conjunto convexo si $C$ es convexo.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sean $S_{1}$ y $S_{2}$ dos subconjuntos de $\mathds{R}^{n}$.
+
+  Muestre que las siguientes relaciones:
+
+  \begin{parts}
+    \part
+
+    \begin{math}
+      \operatorname{co}
+      \left(S_{1}\cap S_{2}\right)\subset
+      \operatorname{co}\left(S_{1}\right)\cap
+      \operatorname{co}\left(S_{2}\right).
+    \end{math}
+
+    Dé un ejemplo donde la inclusión estricta es cumplida.
+
+    \part
+
+    \begin{math}
+      \operatorname{co}
+      \left(S_{1}\pm S_{2}\right)=
+      \operatorname{co}
+      \left(S_{1}\right)\pm
+      \operatorname{co}
+      \left(S_{2}\right).
+    \end{math}
+
+    \part
+
+    \begin{math}
+      \operatorname{co}
+      \left(S_{1}\cup S_{2}\right)=
+      \operatorname{co}
+      \left(
+      \operatorname{co}
+      \left(S_{1}\right)\cup
+      \operatorname{co}
+      \left(S_{2}\right)
+      \right).
+    \end{math}
+
+  \end{parts}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sean $K_{1}$ y $K_{2}$ dos conos con punta de $\mathds{R}^{n}$.
+
+  Muestre las siguientes relaciones:
+
+  \begin{parts}
+
+    \part
+
+    \begin{math}
+      K_{1}+
+      K_{2}=
+      \operatorname{co}
+      \left(
+      K_{1}\cup
+      K_{2}
+      \right).
+    \end{math}
+
+    \part
+
+    \begin{math}
+      K_{1}\cap
+      K_{2}=
+      \bigcup_{\alpha\in\left[0,1\right]}
+      \left(
+      \alpha K_{1}\cap
+      \left(1-\alpha\right)K_{2}
+      \right).
+    \end{math}
+  \end{parts}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+  Sea $X\subset\mathds{R}^{m}$.
+
+  Muestre que las siguientes relaciones:
+
+  \begin{parts}
+
+    \part
+
+    $X$ y el $\operatorname{co}$ tienen la misma cápsula afín.
+
+    \part
+
+    \begin{math}
+      \operatorname{cono}
+      \left(X\right)=
+      \operatorname{cono}
+      \left(
+      \operatorname{co}
+      \left(X\right)
+      \right).
+    \end{math}
+
+    \part
+
+    \begin{math}
+      \operatorname{aff}
+      \left(
+      \operatorname{co}
+      \left(X\right)
+      \right)\subset
+      \operatorname{aff}
+      \left(
+      \operatorname{cono}\left(X\right)
+      \right).
+    \end{math}
+
+    Dé un ejemplo con la inclusión estricta.
+
+    \part
+
+    Si $0\in\operatorname{co}\left(X\right)$, entonces
+    \begin{math}
+      \operatorname{aff}
+      \left(
+      \operatorname{co}
+      \left(X\right)
+      \right)=
+      \operatorname{aff}
+      \left(
+      \operatorname{cono}
+      \left(X\right)
+      \right).
+    \end{math}
+  \end{parts}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sean $d_{1},d_{2},\ldots,d_{p}$ una cantidad finita de elementos
+  de $\mathds{R}^{n}$.
+
+  Muestre que
+  \[
+    C=
+    \left\{
+    x\in\mathds{R}^{n}\colon
+    x=
+    \sum_{i=1}^{p}
+    \lambda_{i}d_{i},\quad
+    \lambda_{1},\ldots,\lambda_{p}\in
+    \left[0,\infty\right)
+    \right\}
+  \]
+  es un cono convexo cerrado.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+  Sea $C\subset\mathds{R}^{n}$ y $\lambda_{1},\lambda_{2}\in\left[0,\infty\right)$.
+
+  Muestre que si $C$ es un conjunto convexo, entonces
+  \[
+    \left(
+    \lambda_{1}+
+    \lambda_{2}
+    \right)
+    C=
+    \lambda_{1}C+
+    \lambda_{2}C.
+  \]
+  Muestre mediante un ejemplo que la condición de convexidad en $C$ no es superflua.
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $T\colon\mathds{R}^{p}\to\mathds{R}^{q}$ una transformación lineal.
+
+  Si $C\subset\mathds{R}^{p}$ es un conjunto convexo, entonces también lo es la imagen $T\left(C\right)$.
+
+  ¿Se cumple la implicación recíproca o conversa?
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $T\colon\mathds{R}^{p}\rightarrow\mathds{R}^{q}$ una transformación lineal y $C\subset\mathds{R}^{p}$.
+  Entonces
+  \[
+    T\left(\operatorname{co}\left(C\right)\right)=
+    \operatorname{co}\left(T\left(C\right)\right)\quad
+    \text{and}\quad
+    T\left(\operatorname{aff}\left(C\right)\right)=
+    \operatorname{aff}\left(T\left(C\right)\right).
+  \]
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $T\colon\mathds{R}^{p}\rightarrow\mathds{R}^{q}$ una transformación lineal.
+  Si $C\subset\mathds{R}^{p}$ es un conjunto convexo, entonces
+  \[
+    T\left(\operatorname{ri}\left(C\right)\right)=
+    \operatorname{ri}\left(T\left(C\right)\right).
+  \]
+  ¿También se mantiene con la clausura en lugar del interior
+  relativo?
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Sea $C_{1}$ y $C_{2}$ dos conjuntos convexos de $\mathds{R}^{n}$ que satisfacen $C_{1}\subset C_{2}$.
+
+  Muestre que si
+  \begin{math}
+    \operatorname{aff}
+    \left(C_{1}\right)=
+    \operatorname{aff}
+    \left(C_{2}\right),
+  \end{math}
+  entonces
+  \begin{math}
+    \operatorname{ri}
+    \left(C_{1}\right)\subset
+    \operatorname{ri}
+    \left(C_{2}\right).
+  \end{math}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Para una cantidad de $n\times n$ matrices simétricas
+  $A_{0},A_{1},\ldots,A_{m}$, considere para cada
+  $x=\left(x_{1},\ldots,x_{m}\right)\in\mathds{R}^{m}$,
+  \[
+    A\left(x\right)=
+    A_{0}+
+    \sum_{i=1}^{m}
+    x_{i}A_{i}.
+  \]
+
+  Muestre que el conjunto
+  \begin{math}
+    C=
+    \left\{
+    x\in\mathds{R}^{m}\colon
+    A\left(x\right)
+    \text{ es semidefinida positiva}.
+    \right\}
+  \end{math}
+  es un conjunto cerrado y convexo.
+
+  ¿Qué es la cápsula afín de esta cápsula cónica?
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question Sea
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+\end{questions}
+
+\begin{flushright}
+  Facultad de Ciencias, \today.
+\end{flushright}
+\end{document}

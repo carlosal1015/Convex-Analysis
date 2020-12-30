@@ -1,0 +1,4 @@
+<div class="thm thm-{{ .Get 0 }}">
+  <p>{{ i18n (.Get 0) | humanize }}{{ with (.Get 1)}} ({{ . }}){{end}}.</p>
+  {{ .Inner }}
+</div>

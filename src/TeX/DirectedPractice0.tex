@@ -1,0 +1,261 @@
+% arara: clean: {extensions: [ log, pdf, toc, bbl, blg, lof, lot, toc]}
+% arara: pdflatex: { shell : yes }
+%
+% DirectedPractice1.tex
+%
+% Copyright © 2019 Oromion <caznaranl@uni.pe>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+%s along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\documentclass{testfcuni}
+% You can find the documentation on https://github.com/carlosal1015/Notes-2019-1
+%%%% Drawing's section %%%
+\usepackage{tkz-fct}
+\usepackage{tikz}
+\usetikzlibrary{babel,calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+
+\tikzset{3D/.cd,
+	x/.store in=\xx, x=0,
+	y/.store in=\yy, y=0,
+	z/.store in=\zz, z=0
+}
+
+\tikzdeclarecoordinatesystem{3D}{%
+	\tikzset{3D/.cd,#1}%
+	\pgfpoint{sin(\yy)*(\xx)}{-((\xx)/75)^2+(\zz)/100*(\xx)}%
+}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{decorations.markings}
+\usepackage[makeroom]{cancel} % Allow cancel terms like symbolic algebra.
+%%% Color's section %%%
+\definecolor{bgcolor}{RGB}{247,242,222}
+\definecolor{myred}{RGB}{113,22,16}
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\definecolor{azul}{RGB}{112, 44, 132}
+%%% Front logo %%%
+\newcommand\logo{%
+	\begin{tikzpicture}
+	\node[draw=lime,line width=2.5pt,fill=bgcolor,rounded corners=2pt,minimum width=0.24\textwidth,align=center,inner sep=0pt,minimum height=2.4cm] (rect)
+	{ \sffamily
+		\parbox{.45\linewidth}{\color{myred}\footnotesize FACULTAD\\DE CIENCIAS}%
+		\parbox{.15\linewidth}{\color{myred}\Large\bfseries UNI}
+	};
+	\draw[violet,line width=2pt] ([xshift=18pt,yshift=-.55cm]rect.north) -- +(0,-35pt);
+	\end{tikzpicture}%
+}
+\extrawidth{1in}
+
+\begin{document}
+
+\noindent\parbox[c]{.3\textwidth}{\logo}\hfill
+\parbox[c]{1\textwidth}{\raggedright%s
+  \sffamily {\Large \textbf{Práctica dirigida N$\bm{^{\circ} 1}$ de Análisis real\\
+      CM-214 Ciclo 2019-1}\footnotetext{Disponible en \url{https://github.com/carlosal1015}} \par\bigskip}
+  {Undg. Carlos Alonso Aznarán Laos\\
+    E-mail: \href{mailto:caznaranl@uni.pe}{caznaranl\MVAt uni.pe} 	\par\smallskip}
+  {\footnotesize Science Department, National University of Engineering\par}
+}
+
+\begin{center}
+  \fbox{\fbox{\parbox{6.6in}{\centering
+        \textbf{Temas:} Conjuntos convexos.}}}
+\end{center}
+\hrulefill
+
+\begin{questions}
+  %\pointinleftmargin
+  \pointpoints{Punto}{Puntos}
+  %\bracketedpoints
+
+  \question
+
+  Dado $C\subset A$, definimos la función indicadora de $A$ por
+  $I_{A}\colon C\rightarrow\left\{0,1\right\}$ tal que
+  \begin{math}
+    I_{A}\left(x\right)=
+    \begin{cases}
+      0, & \text{si }x\notin A \\
+      1, & \text{si }x\in A
+    \end{cases}
+  \end{math}
+  \linebreak pruebe que:
+
+  \begin{parts}
+
+    \part
+
+    $A\subset C$ si y solamente si $I_{A}\leq I_{B}$.
+
+    \part
+
+    $I_{A\cup B}\leq I_{A}+I_{B}$, la igualdad se verifica si y solo si $A\cap B=\emptyset$.
+  \end{parts}
+
+  \begin{solution}
+    \ldots
+  \end{solution}
+
+  \question
+
+  Para una función arbitraria $f\colon X\rightarrow Y$, pruebe que
+  las siguientes relaciones se mantienen:
+
+  \begin{parts}
+    \part
+
+    \begin{math}
+      f
+      \left(\bigcup_{i\in I}A_{i}\right)=
+      \bigcup_{i\in I}f\left(A_{i}\right).
+    \end{math}
+
+    \part
+
+    \begin{math}
+      f
+      \left(\bigcap_{i\in I}A_{i}\right)\subseteq
+      \bigcap_{i\in I}f\left(A_{i}\right).
+    \end{math}
+
+    \part
+
+    Brinde un contraejemplo en el ítem anterior para que no se
+    compruebe la igualdad.
+
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part
+
+      Sea $y\in f\left(\bigcup_{i\in I}A_{i}\right)$.
+
+      Por definición, esto significa que
+      \begin{math}
+        \exists\,x\in
+        \left(\bigcup_{i\in I}A_{i}\right)\ni
+        f\left(x\right)=
+        y.
+      \end{math}
+
+      Esto es,
+      \begin{math}
+        \exists\,x\ni
+        \exists\,i\in
+        I\ni
+        x\in
+        A_{i}
+      \end{math}
+      y $f\left(x\right)=y$.
+
+      Así, $\exists\,i\in I\ni y\in f\left(A_{i}\right)$.
+
+      Por lo tanto, $y\in\bigcup_{i\in I}f\left(A_{i}\right)$.
+
+      \part
+
+      Sea $y\in f\left(\bigcap_{i\in I}A_{i}\right)$.
+
+      Por definición, esto significa que
+      \begin{math}
+        \exists\,x\in
+        \bigcap_{i\in I}A_{i}\ni
+        f\left(x\right)=
+        y.
+      \end{math}
+
+      Esto es, $\exists\,x\ni\forall i\in I,x\in A_{i}$ y
+      $f\left(x\right)=y$.
+
+      Así, $\forall i\in I,y\in f\left(A_{i}\right)$.
+
+      Por lo tanto, $y\in\bigcap_{i\in I}f\left(A_{i}\right)$.
+
+      \part
+
+      Sea
+      \begin{math}
+        f\colon
+        \left\{1,2,3,4\right\}\to
+        \left\{1,2,3,4\right\}.
+      \end{math}
+      $A=\left\{1,2,3\right\}$ y $B=\left\{2,3,4\right\}$.
+      $A\cap B=\left\{2,3\right\}$.
+      $f\left(1\right)=2$, $f\left(2\right)=3$, $f\left(3\right)=4$,
+      $f\left(4\right)=2$.
+      $f\left(A\cap B\right)=\left\{3,4\right\}$,
+      $f\left(A\right)=\left\{2,3,4\right\}$,
+      $f\left(B\right)=\left\{3,4,2\right\}$,
+      \begin{math}
+        f
+        \left(A\right)\cap
+        f\left(B\right)=
+        \left\{2,3,4\right\}\neq
+        \left\{3,4\right\}=
+        f
+        \left(A\cap B\right).
+      \end{math}
+    \end{parts}
+  \end{solution}
+
+  \question
+
+  Sean $f\colon A\rightarrow B$, $g\colon B\rightarrow C$ funciones, pruebe que:
+
+  \begin{parts}
+    \part Si $f,g$ son inyectivas, entonces $g\circ f$ también lo es.
+
+    \part Si $f,g$ son sobreyectivas, entonces $g\circ f$ también lo es.
+
+    \part Si $f,g$ son biyectivas, entonces $g\circ f$ también lo es.
+  \end{parts}
+
+  \begin{solution}
+
+    Sean $\mathcal{F}\colon A\to B$, $g\colon B\to C$.
+    \begin{parts}
+      \part
+
+      Sean
+      \begin{math}
+        x_{1},x_{2}\in
+        A\ni
+        \left(g\circ f\right)
+        \left(x_{1}\right)=
+        \left(g\circ f\right)
+        \left(x_{1}\right).
+      \end{math}
+
+      Entonces
+      \begin{math}
+        g\left(f\left(x_{1}\right)\right)=
+        g\left(f\left(x_{2}\right)\right).
+      \end{math}
+      Así, $f\left(x_{1}\right)=f\left(x_{2}\right)$.
+
+      Por lo tanto, $x_{1}=x_{2}$.
+    \end{parts}
+  \end{solution}
+
+\end{questions}
+
+\begin{flushright}
+  Facultad de Ciencias, \today.
+\end{flushright}
+\end{document}
+http://mathworld.wolfram.com/DenumerableSet.html

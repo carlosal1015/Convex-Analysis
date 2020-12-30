@@ -1,0 +1,36 @@
+% arara: latex
+% arara: dvips
+% arara: ps2pdf
+
+\documentclass{standalone}
+\usepackage{pstricks,pst-plot}
+\usepackage{amssymb}
+
+\begin{document}
+\psframebox[framesep=0,linecolor=blue]{
+	\begin{pspicture}(-5,-1)(5,6)
+		%\psset{xunit=0.5mm,yunit=1mm}
+		\psaxes[labels=none,linecolor=blue]{->}(0,0)(-5,-1)(5,6)
+		\rput(0,3){$
+				A=
+				\left\{
+				\left(x,y\right)
+				\in\mathbb{R}^{2}\colon y=
+				\left|x\right|,
+				-1\le x\le1
+				\right\}
+			$}
+		%\psline{->}(20,10)
+	\end{pspicture}
+}
+
+\begin{pspicture}(-1,-0.5)(12,5)
+	\psaxes[Dx=100,dx=1,Dy=0.00075,dy=1]{->}(0,0)(12,5)[$x$,-90][$y$,180]
+	\psplot[linecolor=red, plotstyle=curve,linewidth=2pt,plotpoints=200]{0}{11}%
+	[ /const1 3.3 10 8 neg exp mul def
+		/s 10 def
+		/const2 6.04 10 6 neg exp mul def ] % optional PS commands
+	{ const1 x 100 mul dup mul mul Euler const2 neg x 100 mul dup mul mul exp mul 2000 mul}
+\end{pspicture}
+
+\end{document}

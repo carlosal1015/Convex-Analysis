@@ -1,0 +1,31 @@
+baseurl = "https://carlosal1015.github.io/Convex-Analysis"
+DefaultContentLanguage = "es"
+languageCode = "es-pe"
+title = "Análisis convexo"
+theme = "startbootstrap-clean-blog"
+canonifyurls = true
+paginate = 10
+themesDir = "themes"
+copyright = "Código lanzado bajo la licencia GPL 2.0."
+
+[author]
+    name = "Oromion Aznarán"
+
+[params]
+  DateForm = "Mon, Jan 2, 2006"
+  Description = "Curso de Análisis convexo"
+  Author = "Oromion Aznarán"
+  email = "caznaranl@uni.pe"
+
+[[params.social]]
+    title = "github"
+    url = "https://github.com/carlosal1015"
+
+[[menu.main]]
+  name = "Inicio"
+  url = "/"
+  weight = -200
+[[menu.main]]
+  name = "Entradas"
+  url = "/post/"
+  weight = -180

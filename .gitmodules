@@ -1,0 +1,3 @@
+[submodule "docs/themes/startbootstrap-clean-blog"]
+	path = docs/themes/startbootstrap-clean-blog
+	url = https://github.com/carlosal1015/startbootstrap-clean-blog.git

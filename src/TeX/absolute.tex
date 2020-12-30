@@ -1,0 +1,35 @@
+% arara: latex
+% arara: dvips
+% arara: ps2pdf
+
+\documentclass[border=1mm]{standalone}
+\usepackage{amssymb}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-plot,pst-func}
+\newcommand*\plot[3][linecolor=black]{%
+  \pstVerb{/lambda #2 def }
+  \psplot[#1]{0}{#3}{ x Func }%
+}
+\pstVerb{/Func { % x has to be on top of the stack
+  lambda mul neg Euler exch exp lambda mul } def }
+
+\begin{document}
+\psset{yunit=3cm,xunit=2cm}
+\begin{pspicture}(4,2.5)
+  \psaxes{->}(4,2.5)
+  \plot[linewidth=1.5pt,linecolor=red]{2}{3.8}
+  \psline[linestyle=dashed](!0 .5 Func)(!.5 dup Func)(0.5,0)
+  \rput[lb](! .6 .5 Func){\psPrintValue{0.5 Func}}
+  \rput(2,2){$
+      A=
+      \left\{
+      \left(x,y\right)
+      \in\mathbb{R}^{2}\colon y=
+      \left|x\right|,
+      -1\le x\le1
+      \right\}
+    $}
+\end{pspicture}
+\end{document}
